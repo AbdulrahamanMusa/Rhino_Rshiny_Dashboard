@@ -1,0 +1,6 @@
+This Shiny app 'Global Health and Economic Indicators Dashboard', provides a comprehensive analysis of various global indicators, with a special focus on CO2 emissions and health indices. 
+The dataset includes information about different countries, such as CO2 emissions, maternal mortality ratio, fertility rate, infant mortality, and birth rate. These indicators are crucial for understanding the impact of climate change and health conditions across the globe.
+CO2 emissions data can help us understand a country's contribution to global warming, a key factor in climate change. High levels of CO2 emissions are often associated with industrial activities and can have significant impacts on the environment and human health.
+Health indices such as the maternal mortality ratio, fertility rate, infant mortality, and birth rate provide insights into the health conditions and quality of healthcare in different countries. These indices can be influenced by various factors, including environmental conditions and climate change
+The app allows users to explore these indicators in a user-friendly and interactive way. It is designed to help researchers, policymakers, students, and anyone interested in global trends to understand the data better and make informed decisions
+https://am-datasolution.shinyapps.io/rhinodash/ 
