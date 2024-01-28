@@ -1,0 +1,4 @@
+"0","df <- na.omit(df)"
+"0","m1 <- lm(`Maternal mortality ratio` ~ GDP +`Minimum wage` + `Out of pocket health expenditure` + `Tax revenue (%)` + `Co2-Emissions`, data = df)"
+"0",""
+"0","m2 <- lm(`Infant mortality` ~ GDP +`Minimum wage` + `Out of pocket health expenditure` + `Tax revenue (%)` + `Co2-Emissions`, data = df)"

@@ -1,0 +1,13 @@
+"0","# create a map of the world with the data from the df displayed on the map"
+"0","df %>%"
+"0","  filter(Country == ""United States"") %>%"
+"0","  e_charts() %>%"
+"0","  e_map(df$Population, map = ""world"") %>%"
+"0","  e_title(""United States"") %>%"
+"0","  e_visual_map(df$Population, max_ = 1000000000) %>%"
+"0","  e_tooltip() %>%"
+"0","  e_legend(FALSE) %>%"
+"0","  e_theme(""dark"")"
+"2","Error in `[.data.frame`(data, , c(...), drop = FALSE) : 
+  undefined columns selected
+"

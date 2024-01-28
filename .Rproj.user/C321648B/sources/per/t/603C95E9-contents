@@ -1,0 +1,116 @@
+build_bar_chart <- function(data, selectedName, selectedMetric) {
+  if (selectedName != "Overall") {
+    data <- data %>% filter(Name == selectedName)
+  }
+  if (!is.null(selectedMetric)) {
+    data <- data %>% filter(Metric == selectedMetric)
+  }
+  chart <- data %>%
+    group_by(Year) %>%
+    summarise(value = sum(Value)) %>%
+    mutate(Year = factor(Year)) %>%
+    e_charts(Year) %>%
+    e_bar(value) %>%
+    e_color("#04155ef1") %>%
+    #e_line(value) %>%
+    e_tooltip(trigger = "axis") %>%
+    e_y_axis(name = "Value") %>%
+    e_x_axis(name = "Year") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_toolbox_feature(feature = "saveAsImage") %>%
+    e_toolbox_feature(feature = "restore") %>%
+    e_toolbox_feature(feature = "dataZoom") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_theme("#04155ef1")
+
+  return(chart)
+}
+
+build_bar_chartb <- function(data, selectedName, selectedMetric) {
+  if (selectedName != "Overall") {
+    data <- data %>% filter(Name == selectedName)
+  }
+  if (!is.null(selectedMetric)) {
+    data <- data %>% filter(Metric == selectedMetric)
+  }
+  chartb <- data %>%
+    group_by(Year) %>%
+    summarise(value = sum(Value)) %>%
+    mutate(Year = factor(Year)) %>%
+    e_charts(Year) %>%
+    #e_bar(value) %>%
+    e_color("#f10808f1") %>%
+    e_line(value) %>%
+    e_tooltip(trigger = "axis") %>%
+    e_y_axis(name = "Value") %>%
+    e_x_axis(name = "Year") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_toolbox_feature(feature = "saveAsImage") %>%
+    e_toolbox_feature(feature = "restore") %>%
+    e_toolbox_feature(feature = "dataZoom") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_theme("#04155ef1")
+
+  return(chartb)
+}
+
+
+#==========================Second Page===============================
+build_bar_linePlot <- function(data, selectedName, selected_Metric) {
+  data <- data %>% filter(trimws(Metric) == "Deaths" | trimws(Metric) == "Clinical Cases")
+
+  if (selected_Metric != "Overall") {
+    data <- data %>% filter(Metric == selected_Metric)
+  }
+  if (selectedName != "Overall") {
+    data <- data %>% filter(Name == selectedName)
+  }
+
+  line <- data %>%
+    group_by(Year) %>%
+    summarise(value = sum(Value)) %>%
+    mutate(Year = factor(Year)) %>%
+    e_charts(Year) %>%
+    e_color("#f10808f1") %>%
+    e_line(value) %>%
+    e_tooltip(trigger = "axis") %>%
+    e_y_axis(name = "Value") %>%
+    e_x_axis(name = "Year") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_toolbox_feature(feature = "saveAsImage") %>%
+    e_toolbox_feature(feature = "restore") %>%
+    e_toolbox_feature(feature = "dataZoom") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_theme("#04155ef1")
+
+  return(line)
+}
+
+#======================================third pageplot=======================================
+build_bar_plot <- function(data, selectedName, selectedMetric) {
+  if (selectedName != "Overall") {
+    data <- data %>% filter(Name == selectedName)
+  }
+  if (!is.null(selectedMetric)) {
+    data <- data %>% filter(Metric == selectedMetric)
+  }
+  barp_lot <- data %>%
+    group_by(Year) %>%
+    summarise(value = sum(Value)) %>%
+    mutate(Year = factor(Year)) %>%
+    e_charts(Year) %>%
+    e_bar(value) %>%
+    e_color("#e6ec34f1") %>%
+    #e_line(value) %>%
+    e_tooltip(trigger = "axis") %>%
+    e_y_axis(name = "Value") %>%
+    e_x_axis(name = "Year") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_toolbox_feature(feature = "saveAsImage") %>%
+    e_toolbox_feature(feature = "restore") %>%
+    e_toolbox_feature(feature = "dataZoom") %>%
+    e_toolbox_feature(feature = "dataView") %>%
+    e_theme("#04155ef1")
+
+  return(barp_lot)
+}

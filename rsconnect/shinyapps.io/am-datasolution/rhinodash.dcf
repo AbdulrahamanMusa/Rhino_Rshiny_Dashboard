@@ -1,0 +1,10 @@
+name: rhinodash
+title:
+username: am-datasolution
+account: am-datasolution
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11054934
+bundleId: 8192584
+url: https://am-datasolution.shinyapps.io/rhinodash/
+version: 1

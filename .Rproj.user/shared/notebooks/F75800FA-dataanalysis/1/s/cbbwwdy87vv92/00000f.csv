@@ -1,0 +1,31 @@
+"0","library(readr)"
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(DT)"
+"0","library(echarts4r)"
+"0","library(sjPlot)"
+"2","Install package ""strengejacke"" from GitHub (`devtools::install_github(""strengejacke/strengejacke"")`) to load all sj-packages at once!
+"
+"0","library(gridExtra)"
+"2","
+Attaching package: ‘gridExtra’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    combine
+
+"

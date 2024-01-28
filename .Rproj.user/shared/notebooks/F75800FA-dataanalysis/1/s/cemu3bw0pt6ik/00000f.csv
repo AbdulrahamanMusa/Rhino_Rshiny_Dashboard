@@ -1,0 +1,12 @@
+"0","# Read in the data"
+"0","df <- read_csv(""world-data-2023.csv"")"
+"2","[1mRows: [22m[34m195[39m [1mColumns: [22m[34m35[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (19): Country, Abbreviation, Agricultural Land( %), Capital/Major City, CPI Change (%), Currency-Code, Forested Area (%), Gasoline Price, GD...
+[32mdbl[39m  (9): Birth Rate, Calling Code, Fertility Rate, Infant mortality, Life expectancy, Maternal mortality ratio, Physicians per thousand, Latitu...
+[32mnum[39m  (7): Density
+(P/Km2), Land Area(Km2), Armed Forces size, Co2-Emissions, CPI, Population, Urban_population"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."

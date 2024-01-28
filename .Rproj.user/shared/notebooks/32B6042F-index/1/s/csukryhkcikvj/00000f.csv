@@ -1,0 +1,8 @@
+"0","plot_xtab(x = Wage$education, "
+"0","          grp = Wage$jobclass,"
+"0","          margin = ""row"","
+"0","          bar.pos = ""stack"","
+"0","          show.summary = T,"
+"0","          coord.flip = T)"
+"2","Error: object 'Wage' not found
+"

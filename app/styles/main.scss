@@ -1,0 +1,14 @@
+
+$primary-color: #c4c5c6;
+
+@mixin background-gradient($start, $end) {
+    background: linear-gradient(to bottom, $start, $end);
+}
+
+html, body {
+    height: 100%;
+    color: white;
+    @include background-gradient($primary-color, #dadbdf);
+
+}
+

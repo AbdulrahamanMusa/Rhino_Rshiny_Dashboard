@@ -1,0 +1,196 @@
+shiny::runApp()
+library(shiny)
+library(dplyr)
+shiny::runApp()
+library(readr)
+library(dplyr)
+library(DT)
+library(echarts4r)
+# Read in the data
+df <- read_csv("world-data-2023.csv")
+# dipslay the df in a table using datatable
+datatable(df)
+# create a map of the world with the data from the df displayed on the map
+df %>%
+filter(Country == "United States") %>%
+e_charts() %>%
+e_map(map = "world") %>%
+e_title("United States") %>%
+e_visual_map(df$Population, max_ = 1000000000) %>%
+e_tooltip() %>%
+e_legend(FALSE) %>%
+e_theme("dark") %>%
+e_series(df$Population)
+# create select input for the user to select a country and diplays the data for that country
+if (!require(echarts4r)) {
+install.packages("echarts4r")
+}
+# create select input for the user to select a country and diplays the data for that country
+if (!require(echarts4r)) {
+install.packages("echarts4r")
+}
+# create a map of the world with the data from the df displayed on the map
+df %>%
+filter(Country == "United States") %>%
+e_charts() %>%
+e_map(map = "world") %>%
+e_title("United States") %>%
+e_visual_map(df$Population, max_ = 1000000000) %>%
+e_tooltip() %>%
+e_legend(FALSE) %>%
+e_theme("dark") %>%
+e_series(df$Population)
+# create a map of the world with the data from the df displayed on the map
+df %>%
+filter(Country == "United States") %>%
+e_charts() %>%
+e_map(df$Population, map = "world") %>%
+e_title("United States") %>%
+e_visual_map(df$Population, max_ = 1000000000) %>%
+e_tooltip() %>%
+e_legend(FALSE) %>%
+e_theme("dark")
+# create select input for the user to select a country and diplays the data for that country
+names(df)
+# create select input for the user to select a country and diplays the data for that country
+# Load necessary libraries
+library(echarts4r)
+library(dplyr)
+# Filter data for United States
+us_data <- df %>% filter(Country == "United States")
+# Create map
+us_data %>%
+e_charts() %>%
+e_geo(coordinate_system = "geo") %>%
+e_scatter(Latitude, Longitude,
+symbol_size = 10,
+itemStyle = list(color = 'red')) %>%
+e_theme("dark")
+# create a map of the world with the data from the df displayed on the map
+# Load necessary libraries
+library(echarts4r)
+library(dplyr)
+# Filter data for United States
+us_data <- df %>% filter(Country == "United States")
+# Create map
+us_data %>%
+e_charts() %>%
+e_geo(coordinate_system = "geo") %>%
+e_scatter(Latitude, Longitude,
+symbol_size = 10,
+itemStyle = list(color = 'red')) %>%
+e_theme("dark")
+library(readr)
+library(dplyr)
+library(DT)
+library(echarts4r)
+# Read in the data
+df <- read_csv("world-data-2023.csv")
+# create select input for the user to select a country and diplays the data for that country
+# create a map of the world with the data from the df displayed on the map
+# Load necessary libraries
+library(echarts4r)
+library(dplyr)
+# Filter data for United States
+us_data <- df %>% filter(Country == "United States")
+# Create map
+us_data %>%
+e_charts() %>%
+e_geo(coordinate_system = "geo") %>%
+e_scatter(Latitude, Longitude,
+symbol_size = 10,
+itemStyle = list(color = 'red')) %>%
+e_theme("dark")
+glimpse(df)
+df%>%
+slect(Country, `Density(P/Km2)`, `Agricultural Land( %)`, `Land Area(Km2)`, `Armed Forces size`,`Birth Rate`,`Calling Code`,`Capital/Major City`, `Co2-Emissions`, CPI, `CPI Change (%)`, `Currency-Code`, `Fertility Rate`, `Forested Area (%)`, `Gasoline Price`, GDP, `Gross primary education enrollment (%)`,`Gross tertiary education enrollment (%)`, `Infant mortality`, `Largest city`, `Life expectancy`, `Maternal mortality ratio`, `Minimum wage`,`Official language`, `Out of pocket health expenditure`, `Physicians per thousand`, Population, `Population: Labor force participation (%)`, `Tax revenue (%)`, `Total tax rate`, `Unemployment rate`, Urban_population, Latitude, Longitude)
+df%>%
+select(Country, `Density(P/Km2)`, `Agricultural Land( %)`, `Land Area(Km2)`, `Armed Forces size`,`Birth Rate`,`Calling Code`,`Capital/Major City`, `Co2-Emissions`, CPI, `CPI Change (%)`, `Currency-Code`, `Fertility Rate`, `Forested Area (%)`, `Gasoline Price`, GDP, `Gross primary education enrollment (%)`,`Gross tertiary education enrollment (%)`, `Infant mortality`, `Largest city`, `Life expectancy`, `Maternal mortality ratio`, `Minimum wage`,`Official language`, `Out of pocket health expenditure`, `Physicians per thousand`, Population, `Population: Labor force participation (%)`, `Tax revenue (%)`, `Total tax rate`, `Unemployment rate`, Urban_population, Latitude, Longitude)
+df%>%
+select(Country,`Density
+(P/Km2)`, `Agricultural Land( %)`, `Land Area(Km2)`, `Armed Forces size`,`Birth Rate`,`Calling Code`,`Capital/Major City`, `Co2-Emissions`, CPI, `CPI Change (%)`, `Currency-Code`, `Fertility Rate`, `Forested Area (%)`, `Gasoline Price`, GDP, `Gross primary education enrollment (%)`,`Gross tertiary education enrollment (%)`, `Infant mortality`, `Largest city`, `Life expectancy`, `Maternal mortality ratio`, `Minimum wage`,`Official language`, `Out of pocket health expenditure`, `Physicians per thousand`, Population, `Population: Labor force participation (%)`, `Tax revenue (%)`, `Total tax rate`, `Unemployment rate`, Urban_population, Latitude, Longitude)
+df%>%
+select(Country,`Birth Rate`, `Co2-Emissions`, `Fertility Rate`, GDP, `Infant mortality`, `Life expectancy`, `Maternal mortality ratio`, `Out of pocket health expenditure`, `Physicians per thousand`, Population, Urban_population, Latitude, Longitude)
+shiny::runApp()
+df%>%
+select(Country,`Density
+(P/Km2)`, `Agricultural Land( %)`, `Land Area(Km2)`, `Armed Forces size`,`Minimum wage`, Population, `Population: Labor force participation (%)`, `Currency-Code`, `Fertility Rate`, `Forested Area (%)`, `Gasoline Price`, GDP, `Gross primary education enrollment (%)`,`Gross tertiary education enrollment (%)`, `Infant mortality`, `Largest city`,`Tax revenue (%)`, `Total tax rate`, `Unemployment rate`, Urban_population, Latitude, Longitude)
+shiny::runApp()
+df
+df <- read_csv("world-data-2023.csv")
+box::use(
+readr[...],
+dplyr[...],
+echarts4r[...]
+)
+#' @export
+df <- read_csv("world-data-2023.csv")
+df
+box::use(
+app/logic[df]
+)
+box::use(
+app/logic/df,
+)
+setwd("./dash")
+box::use(
+app/logic/readdatafile[df]
+)
+shiny::runApp()
+shniy::runApp()
+shiny::runApp()
+box::use(
+app/logic/readdatafile[df]
+)
+shiny::runApp()
+page_navbar(
+theme = bs_theme(preset = "cerulean"),
+nav_spacer(),
+title = "Global Health and Economic Indicators dashboard",
+sidebar = accordion(
+conditionalPanel(
+condition = "true",
+titlePanel("Explaination"),
+HTML(markdown::markdownToHTML(text =
+"User need to select the Country of choice to display the specific information",
+fragment.only = TRUE))
+),
+accordion_panel(
+"Dashboard-Filter",
+class = "bslib-page-dashboard",
+selectInput("selectedCountry", "Select a country:", choices = unique(df$Country)),
+),
+nav_panel(actionButton('health','Health-Indicies',),
+class = "bslib-page-dashboard",
+accordion(
+accordion_panel(
+"Global-Health Indicies",
+navset_card_underline(
+title = "Indicators at a glance",
+nav_panel("Visual",
+valuebox$valueBoxUI("valueBoxes")
+),
+nav_panel("Statistics", plotOutput("bill_depth")),
+nav_panel("Map", plotOutput("body_mass")),
+)
+),
+accordion_panel(
+"Country profile",
+navset_card_underline(
+title = "Select Country from the Filter Option to display country profile",
+nav_panel("Description", plotOutput("bill_length")),
+nav_panel("Model", plotOutput("bill_depth")),
+)
+),
+nav_panel(actionButton('education','Education'),
+),
+nav_panel(actionButton('Economic','Economic-Indicators'),
+),
+nav_panel(actionButton('About','About'),
+),
+footer= fn_footer(),
+nav_item(
+input_dark_mode(id = "dark_mode", mode = "light"),
+),
+)
+shiny::runApp()

@@ -1,0 +1,264 @@
+---
+title: <marquee> Data Analytics and Visualization using R </marquee>
+filters:
+  - social-share
+format: 
+  html:
+    toc: true
+share:
+  permalink: "https://am-datasolution.com/posts/intro/"
+  description: "awesome page"
+  twitter: true
+  facebook: true
+  reddit: true
+  stumble: true
+  tumblr: true
+  linkedin: true
+  email: true
+
+editor: visual
+---
+
+**In this document we used R to do the automate data analytics using R programming language, an open-source language used for statistical computing and graphics**
+
+```{r, warning =FALSE, message=FALSE, echo=FALSE}
+library(ISLR)
+library(gtsummary)
+library(report)
+library(tidyverse)
+library(DiagrammeR)
+library(performance)
+library(SmartEDA)
+library(effects)
+library(sjPlot)
+library(likert)
+library(e1071)
+library(lme4)
+library(glmulti)
+library(rJava)
+library(lmerTest)
+library(dlookr)
+```
+
+### 
+
+![Source: ***Human-Capital***](images/Analytics.jpg){fig-align="left" width="401"}
+
+### **Hypothesis**
+
+-   H0: There is no significant difference between the Information officers and Industrial workers
+
+-   H1: There is significant difference between the Information officers and Industrial workers
+
+-   H0: The salary/wage has no significant influence on education, race, and job-class
+
+-   H1: The salary/wage has significant influence on education, race, and job-class
+
+***Below are the variables we are going to used for this Data Analysis***
+
+```{r, echo=FALSE}
+DiagrammeR::grViz("digraph
+                  { 
+                  PredictiveVariabel [layout = dot, rank = RR]
+                  node [ shape = rectangle]
+                  
+                  1 [label = 'Dependent Variable']
+                  2 [label = 'Salary of Employed']
+                  3 [label = 'Jobclass']
+                  4 [label = 'Age']
+                  5 [label = 'Education']
+                  6 [label = 'Race']
+                  7 [label = 'year']
+                  8 [label = 'Marital status']
+                 
+                  
+                  1-> 2->3
+                  2 ->4
+                  2 -> 5
+                  2 -> 6
+                  2 ->7 
+                  2 -> 8}", height = 200)
+```
+
+::: {.panel-tabset style="#00FFFF"}
+## Demographic
+
+***Table2 Demographic Characteristics***
+
+```{r, echo=FALSE, echo=FALSE}
+
+Wage %>% 
+  select(education, age, health) %>% tbl_summary()
+```
+
+## 
+
+#### ***Table2 Distribution by Marital Status***
+
+```{r, echo=FALSE, echo=FALSE}
+Wage %>% 
+  select(maritl, health_ins) %>% tbl_summary()
+```
+
+### 
+
+## Socio-economic
+
+### ***Table2 Socio-economic factors***
+
+```{r, echo=FALSE, echo=FALSE}
+
+Wage %>% 
+  select(wage, jobclass, race) %>% tbl_summary()
+
+```
+
+## Location
+
+## ***Table2 Distribution by location***
+
+```{r, echo=FALSE, echo=FALSE}
+Wage %>% 
+  select(region) %>% tbl_summary()
+```
+
+## Year in services
+
+## ***Table2 Distribution by location***
+
+```{r, echo=FALSE, echo=FALSE}
+Wage %>% 
+  select(year) %>% tbl_summary()
+```
+:::
+
+## Linear regression analysis
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+LM <- lm(wage ~ jobclass, data = Wage,)
+report_table(LM)
+```
+
+In this section we used a report function to generate the narrative of binary linear regression
+
+`r report(LM)`
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+plot(allEffects(LM))
+```
+
+## **Multiple linear regression**
+
+analysis in this model we are going to explore the influence of wage/salary as dependent variables and Age, Race, Education, and Marital status of the employee
+
+```{r,warning=FALSE, message=FALSE, echo=FALSE}
+ML <- lm(wage ~ jobclass + education + race, data = Wage)
+```
+
+## **Table of multiple logistics regression analysis**
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+tbl_regression(ML)
+```
+
+![***Model Explanation***](images/paste-9B86D609.png)
+
+<!-- ## ***Model Explanation*** `r report(ML)` -->
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+plot(allEffects(ML))
+```
+
+```{r, warning=FALSE, message=FALSE, echo= T}
+
+ExpCatViz( 
+  Wage %>% 
+    select(education, jobclass),
+  target = "education"
+  )
+
+```
+
+<center>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# view_df(Wage, show.frq = T, show.prc = T)
+```
+
+<center/>
+
+<center>
+
+```{r, message=FALSE, warning=FALSE}
+plot_frq(Wage$education)
+```
+
+<center/>
+
+<center>
+
+```{r, message=FALSE, warning=FALSE}
+Wage %>% 
+  group_by(race) %>% 
+  plot_frq(education) %>% 
+  plot_grid()
+
+
+#save_plot(filename = "myplot", fig = p, png, width = 30, height = 19)
+```
+
+<center/>
+
+<center>
+
+```{r, message=FALSE, warning=FALSE}
+plot_xtab(x = Wage$education, 
+          grp = Wage$jobclass,
+          margin = "row",
+          bar.pos = "stack",
+          show.summary = T,
+          coord.flip = T)
+```
+
+<center/>
+
+<center>
+
+```{r, message=FALSE, warning=FALSE}
+tab_xtab(var.row = Wage$education, 
+         var.col = Wage$jobclass,
+         show.row.prc = T)
+```
+
+<center/>
+
+`r report(sessionInfo())`
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+# g <- glmulti(wage ~ jobclass+education+age+health+health_ins, data = Wage,
+#                 crit =  aicc,
+#                level = 1,
+#                method = "g",
+#                family = gaussian,
+#                fitfunction = glm,
+#                confsetsize = 100)
+```
+
+```{r,  warning=FALSE, message=FALSE, echo=FALSE}
+# hmodel <- glmulti(wage ~ jobclass+education+age+health+health_ins, data = Wage,
+#                 crit =  aicc,
+#                level = 1,
+#                method = "h",
+#                family = gaussian,
+#                fitfunction = glm,
+#                confsetsize = 100)
+```
+
+```{r,  warning=FALSE, message=FALSE, echo=FALSE}
+# tab_model(h)
+```
+
+```{=html}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7746988053497189"
+     crossorigin="anonymous"></script>
+```
